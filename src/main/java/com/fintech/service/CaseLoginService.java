@@ -29,11 +29,6 @@ public class CaseLoginService {
         return caseLoginRepo.save(caseLogin);
     }
 
-    // upload file
-    public CaseLogin saveFile(CaseLogin file) {
-        return caseLoginRepo.save(file);
-    }
-
     
 
     public CaseLogin getCaseLoginById(Long caseloginId) {

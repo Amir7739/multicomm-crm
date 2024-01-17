@@ -82,10 +82,10 @@ public class CaseLoginController {
                     // Create a new CaseLogin for each file and set the file name
                     CaseLogin fileLogin = new CaseLogin();
                     fileLogin.setUploadFiles(file.getOriginalFilename());
+                    fileLogin.setId(savedCaseLogin.getId());
 
                     // Save the file to the database and add to the list of saved files
-                    CaseLogin savedFile = caseLoginService.saveFile(fileLogin);
-                    savedFiles.add(savedFile);
+                    caseLoginService.saveCaseLogin(fileLogin);
 
                     // You may also want to save the actual file content to a storage location
                     // For simplicity, this example only saves the file metadata to the database
