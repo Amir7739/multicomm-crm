@@ -1,13 +1,15 @@
 package com.fintech.model;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
+import jakarta.persistence.Lob;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -25,12 +27,7 @@ public class CaseLogin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDateTime dateOfLogin;
-    @PrePersist
-    public void LocalDateTime() {
-        dateOfLogin = LocalDateTime.now();
-    }
-
+    private String dateOfLogin;
     private String employeeIdOfCaseOwner;
     // @Pattern(regexp = "^[A-Z]+$",message = "only capital letters are allowed")
     private String employeeName;
@@ -41,10 +38,10 @@ public class CaseLogin {
     @Pattern(regexp = "^[A-Z]+$",message = "only capital letters are allowed")
     private String customerName;
     @Size(min = 10, max = 10, message = "phone no must be exactly 10 digits")
-    private String customerContactNo;
+    private String customerContact;
     @Email(message = "Please provide a valid email address")
     private String mailId;
-    private LocalDate customerDateOfBirth;
+    private String customerDateOfBirth;
     private String customerPermanentAddress;
     private String officeAddressWithPin;
     private String city;
@@ -55,6 +52,9 @@ public class CaseLogin {
     private String latestCIBILScore;
     private String bankingPassAndOtherDocPass;
     private String otherDoc;
+    private String customerPan;
     private String toBeLoggedInFromWhichLender;
     private String remarks;
+    private String uploadFiles;
+   
 }
